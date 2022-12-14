@@ -20,6 +20,9 @@ public class EmailBean implements Serializable{
 	@Inject
 	private EmailService emailService;
 	
+	private static final String DESTINATARIO = "d4n.formacaojava@gmail.com";
+	private static final String ASSUNTO = "Testando envio de email!";
+	
 	public String enviarEmail() {
 		emailService.enviar(montarEmail());
 		
@@ -30,7 +33,7 @@ public class EmailBean implements Serializable{
 	private Email montarEmail() {
 		EmailLayout layout = new EmailLayout();
 		
-		return layout.montarEmailAdministrador("d4n.formacaojava@gmail.com", "Testando envio de email!");
+		return layout.montarEmailAdministrador(DESTINATARIO, ASSUNTO);
 	}
 
 }
